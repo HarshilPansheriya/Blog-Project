@@ -1,0 +1,72 @@
+<%- include('header') %>
+    <div id="content-page" class="content-page">
+        <div class="container-fluid">
+           <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                 <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                       <div class="iq-header-title">
+                          <h4 class="card-title">Add Admin</h4>
+                       </div>
+                    </div>
+                    <div class="iq-card-body">
+                       <form action="/insertAdmin" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="name">First Name</label>
+                                <input type="text" class="form-control" name="fname">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Last Name</label>
+                                <input type="text" class="form-control" name="lname">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="text" class="form-control" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Phone</label>
+                                <input type="text" class="form-control" name="phone">
+                            </div>
+                            <label for="">Gender</label><br>
+                            <div class="radio d-inline-block mr-2">
+                                <input type="radio" name="gender" value="Male">
+                                <label >Male</label>
+                            </div>
+                            <div class="radio d-inline-block mr-2">
+                                <input type="radio" name="gender" value="Female">
+                                <label>Female</label>
+                            </div><br>
+                            <label for="">Select Hobby</label> <br>
+                            <div class="checkbox mb-3">
+                                <label><input type="checkbox" name="hobby[]" value="Reading"> Reading</label>
+                                <label><input type="checkbox" name="hobby[]" value="Cricket"> Cricket</label>
+                                <label><input type="checkbox" name="hobby[]" value="Cycling"> Cycling</label>
+                            </div>
+                            <% let city = ['Surat','Ahemdabad','Rajkot','Vadodara','Navsari','Bharuch'] %>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Select City</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="city">
+                                <option selected="" disabled="">Select Your City</option>
+                                <% city.map((v)=>{ %>
+                                    <option value="<%= v %>"><%= v %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Select Profile</label>
+                                <input type="file" name="admin" class="form-control">
+                            </div>
+                            <input type="submit" class="btn btn-primary" value="Add">
+                            <!-- <button type="submit" class="btn btn-danger">Cancel</button> -->
+                       </form>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+<%- include('footer') %>
